@@ -57,7 +57,7 @@ public final class VectorStack<T> implements StackInterface<T> {
 
     }
 
-    /** Removes and returns this stack’s top entry.
+    /** Removes and returns this stackâ€™s top entry.
     @return  The object at the top of the stack.
     @throws EmptyStackException if the stack is empty before the operation. */
     public T pop() {
@@ -69,7 +69,7 @@ public final class VectorStack<T> implements StackInterface<T> {
         }
     } // end pop
 
-    /** Retrieves this stack’s top entry.
+    /** Retrieves this stackâ€™s top entry.
     @return The object at the top of the stack or null if
     @throws EmptyStackException if the stack is empty. */
     public T peek(){
