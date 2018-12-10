@@ -82,6 +82,68 @@ public class StackSort {
 
         
     // ADD CODE HERE TO SORT THE ARRAY USING TWO STACKS
+    VectorStack<Integer> a;
+    a= new VectorStack<Integer>(data.length);
+    VectorStack<Integer> b;
+    b= new VectorStack<Integer>(data.length);
+    int i;
+
+    for(i=0;i<data.length;i++)
+    {
+   	 if(!a.isEmpty()&&!b.isEmpty())
+   	 {
+   		if(data[i]>=a.peek()&&data[i]<=b.peek())
+   		{
+
+   				a.push(data[i]);
+   		}
+   		else if(data[i]>b.peek())
+   		{
+   			while(!b.isEmpty()&&data[i]>b.peek())
+   			{
+   				a.push(b.pop());
+   			}
+   			b.push(data[i]);
+   		}
+   		else if(data[i]<a.peek())
+   		{
+   			while(!a.isEmpty()&&data[i]<a.peek())
+   			{
+   				b.push(a.pop());
+   			}
+   			a.push(data[i]);
+
+   		}
+   	 }
+   	 else if(b.isEmpty())
+   	 {
+   		 while(!a.isEmpty()&&data[i]<a.peek())
+			{
+				b.push(a.pop());
+			}
+			a.push(data[i]);
+   	 }
+   	 else if(a.isEmpty())
+   	 {
+   		 while(!b.isEmpty()&&data[i]>b.peek())
+			{
+				a.push(b.pop());
+			}
+			b.push(data[i]);
+   	 }
+   	 else
+   	 {
+   		 a.push(data[i]);
+   	 }
+    }
+    while(!a.isEmpty())
+   	 b.push(a.pop());
+    i=-1;
+    while(!b.isEmpty())
+    {
+   	 i++;
+   	 result[i]=b.pop();
+    }
 
         return result;
 
